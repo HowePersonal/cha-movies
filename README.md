@@ -24,78 +24,17 @@ Run the following commands to build the war file for 2023-fall-cs122b-team-cha:
     sudo cp ./target/*.war /var/lib/tomcat10/webapps/
 Run this command there should be a war file now:
     ls -lah /var/lib/tomcat10/webapps/
-Go the deployed website
-    
-
-    - #### Collaborations and Work Distribution:
+Go the deployed websit
 
   
 - # Connection Pooling
-    - #### Include the filename/path of all code/configuration files in GitHub of using JDBC Connection Pooling.
-  ./src/MovieRatedServlet.java
-  ./src/SingleMovieServlet.java
-  ./src/SingleStarServlet.java
-  ./src/StarsServlet.java
-  ./src/Browse/GenreServlet.java
-  ./src/Browse/MetaDataServlet.java
-  ./src/Browse/SingleGenreServlet.java
-  ./src/Browse/SingleTitleServlet.java
-  ./src/Browse/TableNameServlet.java
-  ./src/Insertions/AddMovie.java
-  ./src/Insertions/AddStar.java
-  ./src/Search/AdvancedSearchServlet.java
-  ./src/Search/AutocompleteServlet.java
-  ./src/Search/SearchServlet.java
-  ./src/cart/PaymentServlet.java
-  ./src/cart/SaleServlet.java
-  ./src/login/eLoginServlet.java
-  ./src/login/LoginServlet.java
-    - #### Explain how Connection Pooling is utilized in the Fabflix code.
+
     The connection pool in our code has a max of 100 connections that can be reused when unallocated and requested by a servlet. After the connection is closed by the servlet, it goes back into the connection pool. In our pool, at most 30 connections can stay idle, if more than 30, our pool releases the extra connections.
 
 When a servlet requests a connection, there is a max wait limit of 10 seconds to find a connection in the pool before an exception is thrown.
-    - #### Explain how Connection Pooling works with two backend SQL.
+
     The connection pool in our code for the two backend SQL is that each backend has a max of 100 connections that can be reused when unallocated and requested by a servlet. After the connection is closed by the servlet, it goes back into the connection pool. In our pool, at most 30 connections can stay idle, if more than 30, our pool releases the extra connections.
 
-    
-
-- # Master/Slave
-    - #### Include the filename/path of all code/configuration files in GitHub of routing queries to Master/Slave SQL.
-  ./src/Insertions/AddMovie.java
-  ./src/Insertions/AddStar.java
-  ./src/cart/SaleServlet.java
-    - #### How read/write requests were routed to Master/Slave SQL?
-    In the Master/Slave instances requests were routed through the context.xml resources. We made all read requests go through the local host MySQL and for write requests we made all requests go through the master MySQL database.
- 
-    <?xml version="1.0" encoding="UTF-8"?>
-
-<Context>
-
-    <!-- Defines a Data Source Connecting to localhost moviedbexample-->
-    <Resource
-            name="jdbc/moviedb"
-            auth="Container"
-            driverClassName="com.mysql.cj.jdbc.Driver"
-            factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
-            maxTotal="100" maxIdle="30" maxWaitMillis="10000"
-            type="javax.sql.DataSource"
-            username="root"
-            password="newpassword"
-            url="jdbc:mysql://localhost:3306/moviedb?autoReconnect=true&amp;allowPublicKeyRetrieval=true&amp;useSSL=false&amp;cachePrepStmts=true"/>
-
-    <Resource
-            name="master"
-            auth="Container"
-            driverClassName="com.mysql.cj.jdbc.Driver"
-            factory="org.apache.tomcat.jdbc.pool.DataSourceFactory"
-            maxTotal="100" maxIdle="30" maxWaitMillis="10000"
-            type="javax.sql.DataSource"
-            username="root"
-            password="newpassword"
-            url="jdbc:mysql://<MASTER PRIVATE IP>:3306/moviedb?autoReconnect=true&amp;allowPublicKeyRetrieval=true&amp;useSSL=false&amp;cachePrepStmts=true"/>
-
-
-</Context>
     
 
 - # JMeter TS/TJ Time Logs
