@@ -1,15 +1,8 @@
-- # General
-    - #### Team#: 
-    team-cha
-    - #### Names:
-    Howard You, Benjamin Wu
-    - #### Project 5 Video Demo Link:
-    https://youtu.be/O8rstOzKhe8
+
     - #### Instruction of deployment:
 Assuming Java, MySql, Tomcat10, AWS, and Maven installed
     - MySql should have the user mytestuser with all the access required
 Git clone the repository 
-    git clone https://github.com/uci-jherold2-fall23-cs122b/2023-fall-cs122b-team-cha.git
 Go into the 2023-fall-cs122b-team-cha directory
 Create the database moviedb using createtable.sql
 Create the stored procedure using stored-procedure.sql
