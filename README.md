@@ -1,10 +1,10 @@
-- # JMeter TS/TJ Time Logs
+# JMeter TS/TJ Time Logs
     - #### Instructions of how to use the `log_processing.*` script to process the JMeter logs.
 The log_processing.py script is in the github with the path ./time_log/log_processing.py. To use the script, run the command: python ./log_processing.py TJ1 TS1 TJ2 TS2
 Where TJ1/TS1 are the TJ/TS files of the first instance and TJ2/TS2 are the TJ/TS files of the second instance. You may also run it with a single set of TJ/TS file or more than two:
 python ./log_processing.py TJ1 TS1
 
-- # JMeter TS/TJ Time Measurement Report
+# JMeter TS/TJ Time Measurement Report
 
 | **Single-instance Version Test Plan**          | **Graph Results Screenshot** | **Average Query Time(ms)** | **Average Search Servlet Time(ms)** | **Average JDBC Time(ms)** | **Analysis** |
 |------------------------------------------------|------------------------------|----------------------------|-------------------------------------|---------------------------|--------------|
