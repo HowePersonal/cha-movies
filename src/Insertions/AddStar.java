@@ -22,7 +22,7 @@ import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
-// Declaring a WebServlet called SingleStarServlet, which maps to url "/api/single-star"
+// Declaring a WebServlet called Browse.SingleStarServlet, which maps to url "/api/single-star"
 @WebServlet(name = "AddStarServlet", urlPatterns = "/api/addstar")
 public class AddStar extends HttpServlet {
     private static final long serialVersionUID = 2L;

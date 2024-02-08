@@ -45,35 +45,35 @@ public class GenreServlet extends HttpServlet {
 
             PreparedStatement statement = dbCon.prepareStatement("SELECT DISTINCT id, name genre from genres ORDER BY name;");
 
-            // Log to localhost log
+
 
             ResultSet rs = statement.executeQuery();
 
             JsonArray jsonArray = new JsonArray();
 
-            // Iterate through each row of rs
+
             while (rs.next()) {
                         String genre = rs.getString("genre");
                 long id = rs.getLong("id");
 
-                // Create a JsonObject based on the data we retrieve from rs
+
                 JsonObject jsonObject = new JsonObject();
                 jsonObject.addProperty("genre", genre);
                 jsonObject.addProperty("id", id);
                 jsonArray.add(jsonObject);
             }
 
-            // Close all structures
+
             rs.close();
             statement.close();
             dbCon.close();
 
-            // Log to localhost log
+
             request.getServletContext().log("returning " + jsonArray.size() + " genres");
 
-            // Write JSON string to output
+
             out.write(jsonArray.toString());
-            // Set response status to 200 (OK)
+
             response.setStatus(200);
 
 
